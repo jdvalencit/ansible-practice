@@ -28,7 +28,6 @@ resource "aws_security_group_rule" "SG_control_ingress_rule" {
   security_group_id = aws_security_group.SG_control_node.id
   type              = "ingress"
   cidr_blocks       = ["0.0.0.0/0"]
-  #cidr_blocks       = ["18.206.107.24/29"]
   protocol  = "tcp"
   from_port = 22
   to_port   = 22
@@ -77,6 +76,7 @@ resource "aws_security_group_rule" "SG_node_egress_rule" {
   to_port           = 0
 }
 
+#Creation of control node instance for ansible
 resource "aws_instance" "control_node_instance" {
   ami                         = "ami-0a0e5d9c7acc336f1"
   instance_type               = "t2.micro"
@@ -92,6 +92,7 @@ resource "aws_instance" "control_node_instance" {
   user_data = file("${path.module}/scripts/control.sh")
 }
 
+#Creation of 2 instances for testing ansible playbooks
 resource "aws_instance" "task-instance" {
   count                       = 2
   ami                         = "ami-0a0e5d9c7acc336f1"
