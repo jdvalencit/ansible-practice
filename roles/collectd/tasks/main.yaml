@@ -1,0 +1,8 @@
+---
+- name: Include install_collectd tasks
+  include_tasks: roles/collectd/tasks/install_collectd.yaml
+  when: collectd_behavior == 'install'
+
+- name: Include remove_collectd task
+  include_tasks: roles/collectd/tasks/remove_collectd.yaml
+  when: collectd_behavior != 'install'

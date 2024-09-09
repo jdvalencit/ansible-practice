@@ -1,0 +1,8 @@
+*.pem
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+*.lock.*
+
+/.vscode/

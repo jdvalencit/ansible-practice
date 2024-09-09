@@ -1,0 +1,5 @@
+---
+- name: Reboot nodes where SELinux was diabled
+  ansible.builtin.reboot:
+    msg: "Rebooting machine..."
+  become: true

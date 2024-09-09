@@ -1,0 +1,10 @@
+---
+- name: Print a list of network interfaces for every virtual machine.
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Print network interfaces
+      debug:
+        msg: "{{ ansible_facts['interfaces'] }}"
+  

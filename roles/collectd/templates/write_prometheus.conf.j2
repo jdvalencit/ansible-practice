@@ -1,0 +1,15 @@
+LoadPlugin write_prometheus
+
+<Plugin "write_prometheus">
+  Port "{{ prometheus_port }}"
+  Path "{{ prometheus_path }}"
+</Plugin>
+
+LoadPlugin df
+LoadPlugin processes
+LoadPlugin protocols
+LoadPlugin swap
+LoadPlugin tcpconns
+LoadPlugin uptime
+LoadPlugin users
+LoadPlugin vmem

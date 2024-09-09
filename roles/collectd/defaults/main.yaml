@@ -1,0 +1,7 @@
+---
+#Installs collectd by default
+collectd_behavior: "install"
+
+prometheus_port: 9103
+prometheus_path: /metrics
+

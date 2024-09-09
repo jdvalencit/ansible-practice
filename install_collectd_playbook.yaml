@@ -1,0 +1,5 @@
+---
+- name: Install, manage and uninstall collectd and the rite_prometheus plugin
+  hosts: managed_nodes
+  roles:
+    - collectd

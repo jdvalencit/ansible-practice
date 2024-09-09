@@ -1,0 +1,2 @@
+---
+packages: ["curl", "lsof", "mc", "nano", "tar", "unzip", "vim", "zip"]

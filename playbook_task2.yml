@@ -1,0 +1,5 @@
+---
+- name: Install a list of packages and disable SELinux on the managed nodes
+  hosts: managed_nodes
+  roles:
+    - common

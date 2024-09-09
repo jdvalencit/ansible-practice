@@ -1,0 +1,24 @@
+---
+- name: Install lastest collectd and collectd-write_prometheus version
+  package:
+    name:
+      - collectd
+      - collectd-core
+    state: latest
+  notify: Restart collectd
+  become: true
+
+- name: Enable the Write Prometheus plugin
+  template:
+    src: write_prometheus.conf.j2
+    dest: /etc/collectd/collectd.conf
+  become: true
+  notify:
+    - Restart collectd
+
+- name: Ensure collectd service is enabled and started
+  service:
+    name: collectd
+    enabled: yes
+    state: started
+  become: true

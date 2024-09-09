@@ -1,0 +1,10 @@
+---
+- name: Include install_packages task for installing packages on the managed nodes
+  include_tasks: roles/common/tasks/install_packages.yml
+
+- name: Disable SELinux on the managed nodes
+  ansible.posix.selinux:
+    state: disabled
+  become: true
+  notify: "Reboot nodes where SELinux was diabled"
+  
